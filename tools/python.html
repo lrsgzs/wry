@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet"href="../files/CSS/navbar.css"/>
+	<link rel="stylesheet"href="../files/CSS/beautifulA.css"/>
+	<link rel="stylesheet"href="../files/CSS/dropdown.css"/>
+	<link rel="icon"href="https://pic2.zhimg.com/v2-b5fa536054332eaa57b797d6fbe4c904_1440w.jpg?source=172ae18b"/>
+	<link rel="shortcut icon"href="https://pic2.zhimg.com/v2-b5fa536054332eaa57b797d6fbe4c904_1440w.jpg?source=172ae18b"/>
+<title>若宇工作室ACE Editor2.0测试版（Python）</title>
+<!--导入js库-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<meta charset="utf-8">
+   <script
+      src="https://cdn.jsdelivr.net/gh/skulpt/skulpt-dist/skulpt.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/skulpt/skulpt-dist/skulpt-stdlib.js"></script>
+
+<script>
+function stop(){
+	stop_session()
+    Sk.configure({output:outf, read:builtinRead, execLimit: 1});
+}
+function start(){
+    document.getElementById("hhhc").innerText="停止"
+    document.getElementById("hhhc").onclick=stop
+}
+function stop_session(){
+    document.getElementById("hhhc").innerText="运行"
+    document.getElementById("hhhc").onclick=run
+	window.location.hash='#'
+	window.location.hash="#code"
+}
+          function outf(text) {
+              term.write(String(text))
+        //var mypre = document.getElementById("output");
+        //mypre.innerHTML = mypre.innerHTML + text;
+      }
+      function builtinRead(file) {
+        console.log("Attempting file: " + Sk.ffi.remapToJs(file));
+        if (
+          Sk.builtinFiles === undefined ||
+          Sk.builtinFiles.files[file] === undefined
+        ) {
+          throw "File not found: '" + file + "'";
+        }
+
+        return Sk.builtinFiles.files[file];
+      }
+      //实现终端获取一行文本
+      function stop_input(){
+          window.inputing=false
+          term.on("key",function(k,v){})
+      }
+      function inf(text){
+          window.inputing=true
+          window.string_input=''
+          term.write(text)
+          term.on('key', function(key, ev)  {
+        console.log(key.charCodeAt(0));
+        if (key.charCodeAt(0) == 13){
+            term.write('\n');
+            stop_input()
+        }else{
+            window.string_input+=String(key)
+        }
+        term.write(key);
+        while(window.inputing){
+            //啥也不做
+        }
+        return window.string_input
+});
+      }
+      function runit() {
+		  window.location.hash=''
+		  window.location.hash="#term"
+          window.running=true
+          start()
+        var prog = editor.getValue() //document.getElementById("yourcode").value;
+        var mypre = document.getElementById("output");
+        window.term.clear()//mypre.innerHTML = "";
+        Sk.pre = "output";
+        Sk.configure({
+          output: outf,
+          read: builtinRead,
+          doInput:inf,
+          __future__: Sk.python3,
+        });
+
+        (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = "mycanvas";
+        var myPromise = Sk.misceval.asyncToPromise(function() {
+          return Sk.importMainWithBody("<stdin>", false, prog, true);
+        });
+        window.p=myPromise
+
+        myPromise.then(
+          function(mod) {
+              window.loading=false
+              stop_session()
+            console.log("success");
+            term.write("\n\033[33m代码运行结束\033[0m")
+            term.write("\n")
+          },
+          function(err) {
+              if(String(err).indexOf("TimeLimitError")!=-1){
+                  term.write("\n\033[33m~用户终止了运行~\033[0m")//停止原理是现时1毫秒，和错误分离开
+                  return term.write("\n")
+              }
+              window.loading=false
+              stop_session()
+            console.error(err.toString());
+            line=parseInt(String(err).split("on line ")[1])-1
+            coder=editor.getValue().split("\n")[line]
+            term.write("\n\033[31;1mTraceback (most recent call last):\n\
+                 File \"main.py\", line "+(line+1)+", in <module>:\n\
+                     "+coder+"\n\
+            "+err+"\033[0m")
+            tem.write("\n")
+          }
+        );
+      }
+      window.runit=runit
+
+</script>
+<script>
+function stopper(){
+	if(window.running){
+		
+	}else{
+	document.getElementById("hhhc").innerText="运行"
+	document.getElementById("hhhc").onclick=window.run
+}}
+window.setInterval(stopper,1)
+</script>
+</head>
+
+<body>
+	<p align="center"onclick="window.location.href='http://yangguang-gongzuoshi.top/wry/'">
+	        	<img src="https://s4.ax1x.com/2022/01/21/72o9S0.png"height="150px"/>
+	        	<div align="center">若宇工作室</div>
+	        </p>
+	        <nav>
+	            <ul>
+	      <li><a href="http://yangguang-gongzuoshi.top/wry/home.html#" title="首页">首页</a></li>
+	      <li><a href="https://code.xueersi.com/home/project/detail?lang=code&amp;pid=18117905&amp;version=python&amp;form=python&amp;langType=python" target="_blank" title="加入若宇工作室">加入工作室</a></li>
+	      <li><a href="mailto:wangkang@139.com" title="联系我们" target="_blank">邮箱</a></li>
+		  <li>
+		      <div class="drop">
+		          <a href="http://yangguang-gongzuoshi.top/wry/articles.html">教程中心</a>
+		          <ul class="dropContent">
+				  <style>
+	.dropContent li a{
+		color: white;
+	}
+				  </style>
+		              <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=py">Python</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=c">C/C++</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=scratch">图形化编程</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=android">安卓</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=frontend">网页前端</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=win">Windows技巧</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=win10">Win10</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=win11">Win11</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=linux">Linux技巧</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=mint">Linux mint</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=centos">CentOS</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=rh">红帽</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=else">其他</a></li>
+					  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=drone">无人机</a></li>
+		          </ul>
+		      </div>
+		  </li>
+		  <li>
+			<div class="drop">
+				<a href="games.html">游戏专区</a>
+				<ul class="dropContent">
+					<li>分类功能暂未开放</li>
+				</ul>
+			</div>
+		</li>
+	        </ul>
+	        <!--div class="rightdiv">
+	            <font class="rightfont">已有</font>
+	            <!--已失效<a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=yrqdn&nd=6&style=108" border="0" alt="网站计数器"></a>
+	            <font class="rightfont">人访问该网站！</font><!---->
+	            <!--更换->
+	            <a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zrmexaxq&amp;nd=6&amp;style=108" border="0" alt="网站计数器"></a>
+	        </div-->
+	        </nav>
+	<h1>在线运行Python</h1>
+	<ul>
+		<li>编辑器总版本：2.0</li>
+		<li>Python版本：3.7</li>
+		<li>运行：sklupt</li>
+		<li>编辑：aceeditor</li>
+		<li>输出：xterm</li>
+	</ul>
+<!--代码输入框（注意请务必设置高度，否则无法显示）-->
+<pre id="code" class="ace_editor" style="min-height:400px"><textarea class="ace_text-input">
+print("Hello Python")
+</textarea></pre>
+<button id="hhhh">白天/夜晚</button>
+<button id="hhhc" onclick="run()">运行</button>
+<div id="term"></div>
+<script>
+//初始化对象
+editor = ace.edit("code");
+
+//设置风格和语言（更多风格和语言，请到github上相应目录查看）
+theme = "clouds"
+language = "python"
+editor.setTheme("ace/theme/" + theme);
+editor.session.setMode("ace/mode/" + language);
+
+//字体大小
+editor.setFontSize(18);
+
+//设置只读（true时只读，用于展示代码）
+editor.setReadOnly(false);
+
+//自动换行,设置为off关闭
+editor.setOption("wrap", "free")
+
+//启用提示菜单
+ace.require("ace/ext/language_tools");
+editor.setOptions({
+enableBasicAutocompletion: true,
+enableSnippets: true,
+enableLiveAutocompletion: true
+});
+</script>
+<style id="s"></style>
+		<link rel="stylesheet"href="https://cdn.bootcdn.net/ajax/libs/xterm/3.9.2/xterm.css"type="text/css"/>
+<script src="https://cdn.bootcdn.net/ajax/libs/xterm/3.9.2/xterm.js"></script>
+
+<script>
+flag = false
+document.getElementById("hhhh").onclick = function(){
+    if (flag==true){
+        document.getElementById("s").innerHTML = ""
+        flag = false
+    }else{
+        document.getElementById("s").innerHTML = "ace-tm .ace_storage,.ace-tm .ace_keyword{    color: #C792EA;}.ace_line {    background-color: #232235;}span.ace_identifier {    color: #959DCB;}span.ace_punctuation {    color: #89DDFF;}.ace-tm .ace_support.ace_function {    color: #5595FF;}span.ace_paren {    color: #144840;}.ace-tm .ace_string {    color: #A8E88D;}.ace-tm .ace_constant.ace_numeric {    color: #ff872e;}.ace-tm .ace_comment {    color: #676E95;}.ace_cursor {    color: #ffdd57;}.ace_layer.ace_text-layer {    background-color: #232235;}.bg-color[data-v-7f35d317] {    background: #292D3E;}.ace_gutter-layer {    background: #292D3E;    color: #4C5374;}.ace-tm .ace_gutter-active-line {    background-color: #232235;}.ace-tm .ace_cursor {    color: #ffdd57;}.hero .hero-head .nav[data-v-1d328329] {    height: 60px;    background-color: #393e54;}.ace_selected .ace_active-line {    background-color: #444267;}.ace_text-layer {    color: #9995c4;}.ace-tm .ace_marker-layer .ace_selection {    background-image: initial;    background-position-x: initial;  background-position-y: initial;    background-size: initial;    background-repeat-x: initial;    background-repeat-y: initial;    background-attachment: initial;   background-origin: initial;    background-clip: initial;    background-color: rgb(0, 110, 255);}.ace-editor[data-v-7f35d317] {    /*字体大小*/    font-size: 25px;}.btn-group .button[data-v-1d328329], .btn-group .button[data-v-1d328329]:hover {    min-width: 80px;    height: 40px;width: 120px;    line-height: 40px;    margin-left: 10px;    margin-bottom: 4px;  margin-top: 10px;    font-family: MicrosoftYaHei;    font-size: 16px;    border-radius: 20px;    background-color: #414863;    color: #fff;}.login-status[data-v-1d328329] {    height: 30px;    line-height: 30px;    font-family: MicrosoftYaHei;   font-size: 13px;    border-radius: 15px;    background-color: #6a75a2;    color: #fff;}.btn-ctrl .btn-no-border[data-v-7f35d317]:hover {    background-color: #6a6da2;}.btn-ctrl .btn-no-border[data-v-7f35d317] {    background-color: #5a5d8c; width: 140px;    border-radius: 20px; border: 0 solid transparent;    font-family: MicrosoftYaHei;    color: #fff;}.btn-ctrl .run-hover[data-v-7f35d317] {    background-color: #6a6da2;}.btn-ctrl .run-hover[data-v-7f35d317] {    background-color:#6a6da2;}.ace-tm .ace_keyword.ace_operator {    color: #89DDFF;}.ace-tm .ace_variable {    color: #FF5370;}.name-group input[data-v-1d328329] {    width: 200px;   height: 40px;    border: 0;    border-radius: 20px;    padding-right: 35px;background-color: #5a5d8c;    background-size: 18px 17px;}"
+        flag = true
+    }
+}
+function run(){
+    //eval(editor.getValue())
+    term.write("\033[33m代码运行开始\n\033[0m")
+    console.log("started")
+    window.runit()
+}
+function down(){
+    function createAndDownloadFile(fileName, content) {
+        var aTag = document.createElement('a');
+        var blob = new Blob([content]);
+        aTag.download = fileName;
+        aTag.href = URL.createObjectURL(blob);
+        aTag.click();
+        URL.revokeObjectURL(blob);
+    }
+    createAndDownloadFile(document.getElementById("name").value.replace(".js", '') + ".js", editor.getValue())
+}
+//初始化对象
+let term = new Terminal({
+       rendererType: "canvas", //渲染类型
+       rows: 40, //行数
+       convertEol: true, //启用时，光标将设置为下一行的开头
+       scrollback:10,//终端中的回滚量
+       disableStdin: false, //是否应禁用输入。
+       cursorStyle: 'underline', //光标样式
+       cursorBlink: true, //光标闪烁
+       theme: {
+         foreground: 'white', //字体
+         background: '#060101', //背景色
+         cursor: 'help',//设置光标
+       }
+     })
+     term.write("\033[s")
+     term.open(undefined)//(document.getElementById('app'))
+window.term=term
+</script>
+</body>
+</html>

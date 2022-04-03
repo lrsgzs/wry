@@ -1,0 +1,133 @@
+.noborder{
+    border: none;
+}
+.noborder{
+    border: none;
+}
+div.article{
+    list-style-type: decimal-leading-zero;
+}
+.widget-title{
+    border-left: 3px solid blue;
+}
+table_grey_collapse{
+    display: block;
+    display: table;
+}
+table_grey_collapse th,td,tr{
+    border: 0.8px solid black;
+}
+table_grey_collapse tr{
+    display: table-row;
+}
+table_grey_collapse th,td{
+    display: table-cell;
+}
+table_grey_collapse th{
+    font-weight: bold;
+}
+table_grey_collapse tr th{
+    background-color: black;
+}
+table_grey_collapse{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+table._grey_collapse{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+table._grey_collapse tr,td,th{
+    border: 1px solid black;
+}
+table._grey_collapse th{
+    background-color: silver;
+}
+
+.highlight>.k{
+    color: purple;
+}
+.highlight>.kn{
+    color: purple;
+}
+.highlight>.n{
+    color: orange;
+}
+.highlight>.sd{
+    color: grey;
+}
+.nc{
+    color: blue;
+}
+.highlight>.c1{
+    color: red;
+}
+.s1{
+    color: green;
+}
+.highlight>.nd{
+    color: pink;
+}.o{
+    color: grey;
+}.kc{
+    color: blue;
+}
+.sa{
+    color: green;
+}
+.kn,.k{
+    color: purple;
+}.c1{
+    color: skyblue;
+}.n{
+    color: orange;
+}
+.nn{
+    color: red;
+}
+.sd{
+    color: grey;
+}
+.download button{
+    background-color: lightgreen;
+    color: white;
+    border: 1px solid green;
+    border-radius: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.download{
+    background-color: deepskyblue;
+}
+.di1{
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 75%);
+    color: white;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+}
+.di1 span{
+    color: white;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 30px;
+}
+.back{
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+}
+.article p img{
+    text-align: center;
+}
+div.highlight{
+	display: block;
+	border: 1px dashed deepskyblue;
+}
+colorfulText{
+	font-size: 35px;
+	font-weight: bold;
+}

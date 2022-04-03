@@ -1,0 +1,31 @@
+	.bigBtn{
+			display: inline-block;
+			height: 100px;
+			width: 300px;
+			border-radius: 10px;
+			font-size: 40px;
+			font-weight: bolder;
+		}
+		.greenBtn{
+			cursor: pointer;
+			background-color: greenyellow;
+			border: 2px solid #000000;
+		}
+		.greenBtn:hover{
+			background-color: #008000;
+			color: white;
+		}
+		.headPhoto{
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			background-size: 200px;
+			border: 2px solid #000000;
+		}
+		.redBtn{
+			background-color: red;
+			color: white;
+		}
+		.redBtn:hover{
+			background-color: darkred;
+		}

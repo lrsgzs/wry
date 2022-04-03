@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>软件下载 - 若宇工作室</title>
+		<link rel="stylesheet"href="CSS/navbar.css"/>
+		<link rel="stylesheet"href="CSS/dropdown.css"/>
+		<link rel="icon"href="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+		<link rel="shortcut icon"href="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+	</head>
+	<body>
+		<p align="center"onclick="window.location.href='http://yangguang-gongzuoshi.top/wry/'">
+			<img src="https://s4.ax1x.com/2022/01/21/72o9S0.png"height="150px"/>
+			<div align="center">若宇工作室</div>
+		</p>
+		<nav>
+		            <ul>
+		      <li><a href="http://yangguang-gongzuoshi.top/wry/home.html#" title="首页">首页</a></li>
+		      <li><a href="https://code.xueersi.com/home/project/detail?lang=code&amp;pid=18117905&amp;version=python&amp;form=python&amp;langType=python" target="_blank" title="加入若宇工作室">加入工作室</a></li>
+		      <li><a href="mailto:wangkang@139.com" title="联系我们" target="_blank">邮箱</a></li>
+			  <li>
+			      <div class="drop">
+			          <a href="http://yangguang-gongzuoshi.top/wry/articles.html">教程中心</a>
+			          <ul class="dropContent">
+					  <style>
+		.dropContent li a{
+			color: white;
+		}
+		h1,h2{
+			text-align: center;
+		}
+		.project{
+			display: inline-blok;
+			height: auto;
+			width: 350px;
+			border: 3px solid #000000;
+			box-shadow: 10px 10px 5px gray;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		.project img{
+			width: 340px;
+			height: 200px;
+			position: relative;
+			left: 5px;
+		}
+		.description{
+			color: gray;
+		}
+		.name{
+			text-align: center;
+			font-weight: bold;
+			font-size: large;
+		}
+		.dropContent li a{
+			color: white;
+		}
+		h1,h2{
+			text-align: center;
+		}
+		.project{
+			display: inline-blok;
+			height: auto;
+			width: 350px;
+			border: 3px solid #000000;
+			box-shadow: 10px 10px 5px gray;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		.project img{
+			width: 340px;
+			height: 200px;
+			position: relative;
+			left: 5px;
+		}
+		.description{
+			color: gray;
+		}
+		.name{
+			text-align: center;
+			font-weight: bold;
+			font-size: large;
+		}
+		nav ul li a{
+			color: white;
+			text-decoration: none;
+		}
+		ul li a:hover{
+			text-decoration: underline;
+			color: yellow;
+		}
+		p[align="center"] img{
+			cursor: pointer;
+		}
+		h3.widget-title{
+			border-left: 2px solid #0000FF;
+		}
+		a.typediv{
+			display: inline-block;
+		}
+		.typediv{
+			color: white;
+			background-color: #00D082;
+			height: 0.8cm;
+			padding-top: 0.2cm;
+			border-radius: 5px;
+			width: 4em;
+			padding-left: 2em;
+		}
+		.typediv:hover{
+			background-color: red;
+		}
+					  </style>
+					  <link rel="icon"href="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+					  <link rel="shortcut icon"href="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+					  <script>
+function search(value){
+	document.getElementById("jxrj").innerText="搜索结果"
+	yess=0
+	Array(document.getElementsByClassName("project")).forEach(function(i){
+		try{
+			
+		if (i.innerText.indexOf(value)!=-1){
+			i.style.display="block"
+			i.innerHTML=i.innerHTML.replace(value,"<font color='red'>"+value+"</font>")
+			console.log(i.innerHTML)
+			yess++
+		}else{
+			i.style.display="none"
+		}
+		}catch(e){
+			if (i[0].innerText.indexOf(value)!=-1){//只有一个元素时会直接嵌套
+				i[0].style.display="block"
+				yess++
+				i[0].innerHTML=String(i[0].innerHTML).replace(value,"<font color='red'>"+value+"</font>")
+				console.log(i[0].innerHTML)
+				yess++
+			}else{
+				i[0].style.display="none"
+			}
+		}
+	})
+	if (yess==0){
+		alert("没有搜索结果！")
+		Array(document.getElementsByClassName("project")).forEach(function(i){
+			yess++
+			try{
+				i.style.display="block"
+			}catch(e){
+				i[0].style.display="block"
+			}
+		})
+		document.getElementById("jxrj").innerText="精选软件"
+	}
+}
+function unsearch(){//取消搜索
+	Array(document.getElementsByClassName("project")).forEach(function(i){
+		console.log(i[0])
+		try{
+			i.innerHTML=i.innerHTML.replace("<font color='red'>",'')
+			i.style.display="block"
+		}catch(f){
+			i[0].style.display="block"
+			i[0].innerHTML=i[0].innerHTML.replace('<font color="red">','')
+			console.log(i[0].innerHTML)
+		}
+	})
+	document.getElementById("jxrj").innerText="精选软件"
+}
+function open1(){
+	window.open("softwares/01.html")
+}
+if(window.location.search.indexOf("search")!=-1){
+	console.log(location.search.split("?search=")[1])
+	var ssearch=location.search.split("?search=")[1]
+	if(ssearch.indexOf("%")!=-1){
+		ssearch=decodeURI(ssearch)
+		console.log(ssearch)
+	}
+	if(ssearch.indexOf("&")!=-1){
+		ssearch=ssearch.split("&")[1]//[0]
+	}
+	window.setTimeout(function(){
+		console.log(ssearch)
+		search(ssearch)
+	})
+}
+					  </script>
+			              <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=py">Python</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=c">C/C++</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=scratch">图形化编程</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=android">安卓</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=frontend">网页前端</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=win">Windows技巧</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=win10">Win10</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=win11">Win11</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=linux">Linux技巧</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=mint">Linux mint</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=centos">CentOS</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=rh">红帽</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=else">其他</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html?type=drone">无人机</a></li>
+			          </ul>
+			      </div>
+			  </li>
+			  <li>
+				<div class="drop">
+					<a href="games.html">游戏专区</a>
+					<ul class="dropContent">
+						<li>分类功能暂未开放</li>
+					</ul>
+				</div>
+			</li>
+		        </ul>
+				<div class="rightdiv">
+					<input id="search-val"type="text"placeholder="在这里输入您想要搜索的内容"style="width: 13em;"/>
+					<button onclick="search(document.getElementById('search-val').value)">🔍搜索</button>
+					<button onclick="unsearch()">🗑清空结果</button>
+				</div>
+				</nav>
+		<h1>软件中心</h1>
+		<div class="readme">
+			本站不提供大型游戏、付费软件（所有付费软件将免费提供）和盗版软件，不使用所谓的“快速下载”牟利。<a href="softwares/rules.html">点我</a>查看本软件站的九大原则。点击软件概览进入详情页。
+		</div>
+		<h3 class="widget-title">分类</h3>
+			<a class="typediv"href="javascript:search('原创')">原创</a>
+			<a class="typediv"href="javascript:unsearch()">精选软件</a>
+			<a class="typediv"href="javascript:search('聊天')">聊天</a>
+		<h3 class="widget-title"id="jxrj">精选软件</h3>
+		<div class="project"onclick="open1()">
+			<img src="https://s4.ax1x.com/2022/01/29/Hp9V39.png"/>
+			<div class="name">鸭信电脑版</div>
+			<div class="description">
+				鸭信这个东西让人搞不懂的一点就在于它官方的应用。它的苹果App完全不能下，安卓的下了也不能打开网页。并且它只有网页版，用起来非常麻烦。于是我们就定义了此电脑app，让聊鸭信更加简单。原创，聊天
+			</div>
+		</div>
+	</body>
+</html>

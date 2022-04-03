@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>鸭信群聊申请 - 若宇、阳光工作室鸭信服务</title>
+		<!--title>鸭信规则</title-->
+				<link rel="stylesheet" href="./dcrules_files/navbar.css">
+				<link rel="stylesheet" href="./dcrules_files/dropdown.css">
+				<link rel="icon" href="https://s2.loli.net/2022/02/08/MuaSeHLXYlJPBsj.png"/>
+				<link rel="shortcut icon"href="https://s2.loli.net/2022/02/08/MuaSeHLXYlJPBsj.png"/>
+				<link rel="apple-touch-icon"href="https://s2.loli.net/2022/02/08/MuaSeHLXYlJPBsj.png"/>
+				<style>
+		nav ul li a{
+			color: white;
+			text-decoration: none;
+		}
+		ul li a:hover{
+			color: yellow;
+			text-decoration: underline;
+		}
+		#green{
+			display: inline-block;
+			border-radius: 10px;
+			height: 20px;
+			width: 20px;
+			background-color: rgb(65, 248, 33);
+		}
+		.tipframe{
+			height: 500px;
+			width: 100%;
+			border: 1.5px dashed deepskyblue;
+		}
+		.s{
+			text-decoration: line-through;
+		}
+		html,body{
+		    overflow: hidden;
+		    margin: 0;
+		    background-color: #000;
+		    width: 100%;
+		    z-index:9999;
+		    height: 100%;
+		    position: relative;
+		}
+		canvas {
+		  height: 100%;
+		  left: 0;
+		  position: fixed;
+		  top: 0;
+		  touch-action: none;
+		  width: 100%;
+		}
+		#txt{
+		    position: absolute;
+		    width:65%;
+		    height: 5.5%;
+		    left: 10%;
+		    top:50%;
+		    border: 0px;
+		    border-radius: 36.5px;
+		    color:black;
+		    z-index:9993;
+		}
+		
+		.button{
+		    position: absolute;
+		    width: 12%;
+		    height:5.5%;
+		    top:50%;
+		    left: 78%;
+		    border-radius: 10px;
+		    font-size: 110%;
+		}
+		div{
+		   position: absolute;
+		   top:60%;
+		   left:25%;
+		   color: white;
+		   width:50%;
+		   font-size:120%;
+		   z-index: 99911
+		}
+		
+		[placeholder]{
+		    text-align:center;
+		    color:white;
+		    font-size:20px;
+		}
+		
+		input::-webkit-input-placeholder{
+		    color:white;
+		    font-size: 20px;
+		    text-align:center;
+		    z-index:9997
+		}
+		.button1 {
+		    border: 2px solid #00008B;
+		    background-color: rgba(255,255,255,0.9);
+		    z-index:9996
+		}
+		
+		.button1:hover {
+		    background-color: rgba(248,147,29,0.9);
+		    color: black;
+		    z-index:9995
+		}
+		
+		input::-webkit-input-placeholder { 
+		color: #999; 
+		-webkit-transition: color.5s; 
+		} 
+		input:focus::-webkit-input-placeholder, input:hover::-webkit-input-placeholder { 
+		color: #c2c2c2; 
+		-webkit-transition: color.5s; 
+		border-block-color: orange;
+		}
+		
+		
+		h1 {
+		    z-index: 9992;
+		    color:#fff;
+		    font-size: -webkit-xxx-large;
+		    position: absolute;
+		    text-align: center;
+		    top: 30%;
+		    width: 100%;
+		    height:10%;
+		    -webkit-text-stroke:1px #1d0fec;
+		    text-shadow: 0 1px 0 hsl(174,5%,80%),                    0 2px 0 hsl(174,5%,75%),                    0 3px 0 hsl(174,5%,70%),                    0 4px 0 hsl(174,5%,66%),                    0 5px 0 hsl(174,5%,64%),                    0 6px 0 hsl(174,5%,62%),                    0 7px 0 hsl(174,5%,61%),                    0 8px 0 hsl(174,5%,60%),                       0 0 5px rgba(0,0,0,.05),                   0 1px 3px rgba(0,0,0,.2),                   0 3px 5px rgba(0,0,0,.2),                  0 5px 10px rgba(0,0,0,.2),                 0 10px 10px rgba(0,0,0,.2),                 0 20px 20px rgba(0,0,0,.3);
+		}
+
+				</style><script>
+		window.onload=function(){
+			if (window.location.search.indexOf("duck")!=-1){
+				document.getElementById("text").innerText="从鸭信小程序打开"
+			}else{
+				document.getElementById("text").innerText="使用普通"+window.location.href.split("://")[0]+"协议，"
+			}
+		}
+				</script></head>
+			</head>
+			<body>
+				<nav>
+					<ul>
+						<li class="drop"><a href="http://yangguang-gongzuoshi.top/">阳光工作室
+						</a><ul class="dropContent"><a href="http://yangguang-gongzuoshi.top/">
+							</a><li><a href="http://yangguang-gongzuoshi.top/"></a><a href="http://yangguang-gongzuoshi.top/">首页</a></li>
+							<li><a href="https://code.xueersi.com/home/project/detail?lang=code&amp;pid=22959404&amp;version=offline&amp;form=python&amp;langType=python">加入须知</a></li>
+							<li><a href="https://docs.qq.com/form/page/DR1BralFabnRsYXJ6?groupUin=nWC5dVtkRzcGptnLxMCLVg%253D%253D#/fill">加入邀请表单</a></li>
+							<li><a href="http://blog.yangguang-gongzuoshi.top/">博客（已失效）</a></li>
+							<li><a href="mailto://1@yangguang-gongzuoshi.top/">阿里云邮箱</a></li>
+						</ul>
+						</li>
+						<li class="drop"><a href="http://yangguang-gongzuoshi.top/wry">若宇工作室</a>
+						<ul class="dropContent">
+							<li><a href="http://yangguang-gongzuoshi.top/wry/">首页</a></li>
+							<li><a href="http://yangguang-gongzuoshi.top/wry/files/games.html">游戏专区</a></li>
+							<li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html">教程中心</a></li>
+							<li><a href="http://yangguang-gongzuoshi.top/wry/come">加入</a></li>
+							<li><a href="mailto://wry2022@outlook.com/">outlook邮箱</a></li>
+							<li><a href="mailto://wry@yangguang-gongzuoshi.top/">阿里云邮箱</a></li>
+						</ul>
+						</li>
+						<li class="drop"><a href="http://chat.yangguang-gongzuoshi.top/index.php?action=page.passport.login">鸭信</a>
+						<ul class="dropContent">
+							<li><a href="http://yangguang-gongzuoshi.top/wry/files/duckchat_servieces/rules.html#">dcrules</a></li>
+							<li><a href="http://chat.yangguang-gongzuoshi.top/index.php?action=page.index">开始畅聊</a></li>
+							<li><a href="https://hi-xiaobao.com/chatyag"target="_blank">鸭信公告</a></li>
+							<li><a href="#">群聊申请</a></li>
+						</ul>
+						</li>
+					</ul>
+					<div class="rightdiv"style="color: #FFFFFF;">
+						已有<a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zvxffp&nd=6&style=9" border="0" alt="免费计数器"></a><!--a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zurmxfxa&nd=3&style=9" border="0" alt="免费计数器"></a-->人申请群聊！
+						
+					</div>
+				</nav>
+				<canvas id="" width="" height=""></canvas>
+			<script>
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+
+const RESOLUTION = 1;
+
+let w = canvas.width = window.innerWidth * RESOLUTION;
+let h = canvas.height = window.innerHeight * RESOLUTION;
+
+const PARTICLE_COUNT = 400;
+const CONNECT_DISTANCE = w * 0.05;
+const FORCE_DISTANCE = w * 0.1;
+
+const r = (n = 1) => Math.random() * n;
+const PI = Math.PI;
+const TAU = PI * 2;
+
+let time = new Date();
+
+const lerp = (start, end, amt) => {
+  return (1 - amt) * start + amt * end;
+};
+
+const distance = (x1, y1, x2, y2) => {
+  const a = x1 - x2;
+  const b = y1 - y2;
+  return Math.sqrt(a * a + b * b);
+};
+
+const angle = (cx, cy, ex, ey) => {
+  return Math.atan2(ey - cy, ex - cx);
+};
+
+const particlePrototype = () => ({
+  x: w * 0.5 + Math.cos(r(TAU)) * r(w * 0.5),
+  y: h * 0.5 + Math.sin(r(TAU)) * r(h * 0.5),
+  angle: r(TAU),
+  speed: r(0.15),
+  normalSpeed: r(0.15),
+  oscAmplitudeX: r(2),
+  oscSpeedX: 0.001 + r(0.008),
+  oscAmplitudeY: r(2),
+  oscSpeedY: 0.001 + r(0.008),
+  connectDistance: r(CONNECT_DISTANCE),
+  color: {
+    r: Math.round(200 + r(55)),
+    g: Math.round(150 + r(105)),
+    b: Math.round(200 + r(55)) } });
+
+
+
+const particles = new Array(PARTICLE_COUNT).
+fill({}).
+map(particlePrototype);
+
+const update = () => {
+  particles.forEach(p1 => {
+    p1.x += (Math.cos(p1.angle) + Math.cos(time * p1.oscSpeedX) * p1.oscAmplitudeX) * p1.speed;
+    p1.y += (Math.sin(p1.angle) + Math.cos(time * p1.oscSpeedY) * p1.oscAmplitudeY) * p1.speed;
+
+    p1.speed = lerp(p1.speed, p1.normalSpeed * RESOLUTION, 0.1);
+
+    if (p1.x > w || p1.x < 0) {
+      p1.angle = PI - p1.angle;
+    }
+    if (p1.y > h || p1.y < 0) {
+      p1.angle = -p1.angle;
+    }
+
+    if (r() < 0.005)
+    p1.oscAmplitudeX = r(2);
+    if (r() < 0.005)
+    p1.oscSpeedX = 0.001 + r(0.008);
+    if (r() < 0.005)
+    p1.oscAmplitudeY = r(2);
+    if (r() < 0.005)
+    p1.oscSpeedY = 0.001 + r(0.008);
+
+    p1.x = Math.max(-0.01, Math.min(p1.x, w + 0.01));
+    p1.y = Math.max(-0.01, Math.min(p1.y, h + 0.01));
+  });
+};
+
+const render = () => {
+
+  ctx.clearRect(0, 0, w, h);
+
+  particles.map(p1 => {
+    particles.
+    filter(p2 => {
+      if (p1 == p2)
+      return false;
+      if (distance(p1.x, p1.y, p2.x, p2.y) > p1.connectDistance)
+      return false;
+      return true;
+    }).
+    map(p2 => {
+      const dist = distance(p1.x, p1.y, p2.x, p2.y);
+      p1.speed = lerp(p1.speed, p1.speed + 0.05 / p1.connectDistance * dist, 0.2);
+      return {
+        p1,
+        p2,
+        color: p1.color,
+        opacity: Math.floor(100 / p1.connectDistance * (p1.connectDistance - dist)) / 100 };
+
+    }).
+    forEach((line, i) => {
+      const colorSwing = Math.sin(time * line.p1.oscSpeedX);
+      ctx.beginPath();
+      ctx.globalAlpha = line.opacity;
+      ctx.moveTo(line.p1.x, line.p1.y);
+      ctx.lineTo(line.p2.x, line.p2.y);
+      ctx.strokeStyle = `rgb(
+					${Math.floor(line.color.r * colorSwing)},
+					${Math.floor(line.color.g * 0.5 + line.color.g * 0.5 * colorSwing)},
+					${line.color.b}
+				)`;
+      ctx.lineWidth = line.opacity * 4;
+      ctx.stroke();
+      ctx.closePath();
+    });
+  });
+
+};
+
+const loop = () => {
+  time = new Date();
+  update();
+  render();
+  window.requestAnimationFrame(loop);
+};
+
+loop();
+
+window.addEventListener('mousemove', e => {
+
+  const mouseX = e.layerX * RESOLUTION;
+  const mouseY = e.layerY * RESOLUTION;
+
+  particles.forEach(p => {
+    const dist = distance(mouseX, mouseY, p.x, p.y);
+
+    if (dist < FORCE_DISTANCE && dist > 0) {
+      p.angle = angle(mouseX, mouseY, p.x, p.y);
+      const force = (FORCE_DISTANCE - dist) * 0.1;
+      p.speed = lerp(p.speed, force, 0.2);
+    }
+  });
+
+});
+
+window.addEventListener('resize', e => {
+  w = canvas.width = window.innerWidth * RESOLUTION;
+  h = canvas.height = window.innerHeight * RESOLUTION;
+});
+			</script>
+			<style>
+body{
+	background-color: #000000;
+	width: 100%;
+	color: white;
+}
+canvas{
+	z-index: -1;
+}
+form{
+	position: relative;
+	top: 550px;
+}
+form{
+	line-height: 2em;
+}
+			</style>
+	<style>
+input{
+	color: #000000!important;
+}
+	</style>
+	<body>
+		<h1>若宇、阳光工作室鸭信群聊创建表单</h1>
+		<form action="http://yangguang-gongzuoshi.top/wry/files/duckchat_servieces/post.php">
+			<label>群聊名称：<input style="width: 26em;"placeholder="你的群叫什么？（太古怪不能通过，如“什么鬼”会被删除。）"type="text"name="name"></label><br />
+			<label>创建人：<input style=""type="text"placeholder="（不实名你的申请直接废掉）"name="creator"></label><br />
+			<label>邮箱：<input style="width: 16em;"type="email"placeholder="方便发送申请通过邮件，可选"name="email"></label><br />
+			<label>类型：<input type="text"list="typelist"placeholder="类型（可自行输入）"name="type">
+			<datalist id="typelist">
+				<option>娱乐群（游戏等）</option>
+				<option>工作室群（不一定是学而思的）</option>
+				<option>项目组（单个作品，工作室的话选上面那个）</option>
+				<option>其他（可自行在下拉框中输入）</option>
+			</datalist>
+			</label><br />
+			<button type="submit">提交审核</button><br />
+			审核团队：张浩阳（总站长，阳光工作室室长）、王若宇（社区若宇工作室室长）、小宝（PHP后端高手）
+		</form>
+	</body>
+</html>

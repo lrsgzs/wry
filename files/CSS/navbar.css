@@ -1,0 +1,47 @@
+@charset "utf-8";
+body{
+     margin:0px;
+     background-image:url(https://z3.ax1x.com/2021/07/02/R6GYRg.jpg)/**https://z3.ax1x.com/2021/07/02/R6G9M9.jpg**/
+     background-repeat:no-repeat;
+     width:800px;height: 400px;
+}
+nav{
+    margin: 100px 0 0 0;
+    height: 40px;
+    width: 920px;
+    background-image: url(https://z3.ax1x.com/2021/07/02/R6G9M9.jpg);
+}
+nav ul li {
+    display: inline;
+    float: left;
+    padding: 11px 20px; 
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;    
+    font-family: Tahoma;
+    outline: none;
+}
+.hlong *{display:inline-block;vertical-align:middle}
+
+div.rightdiv{
+    float: right;
+}
+font.rightfont{
+    color: white;
+}
+
+div.float-rightdiv{
+    float: right;
+    background-image: url(https://img0.baidu.com/it/u=331285581,1425797988&fm=26&fmt=auto&gp=0.jpg);
+    height: 1000px;
+    width: 100px;/**这个在解决**/
+}
+div.navwin{
+    position:fixed;
+    top: 100px;
+    right: 10px;
+    height: 1000px;
+    width: 200px;
+    background-image: url(https://img0.baidu.com/it/u=331285581,1425797988&fm=26&fmt=auto&gp=0.jpg);
+}

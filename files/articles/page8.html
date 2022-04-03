@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于SQL注入 - 若宇工作室</title>
+		<link rel="stylesheet"href="../CSS/articles.css"/>
+		<link rel="stylesheet"href="../CSS/beautifulA.css"/>
+		<link rel="stylesheet"href="../CSS/navbar.css"/>
+		<link rel="stylesheet"href="../CSS/dropdown.css"/>
+		<link rel="stylesheet"href="../CSS/widget-title.css"/>
+		<link rel="stylesheet"href="../CSS/btns.css"/>
+	</head>
+	<body>
+		<p align="center"onclick="window.location.href='http://yangguang-gongzuoshi.top/wry/'">
+			<img src="https://s4.ax1x.com/2022/01/21/72o9S0.png"height="150px"/>
+			<div align="center">若宇工作室</div>
+		</p>
+		<nav>
+		            <ul>
+		      <li><a href="http://yangguang-gongzuoshi.top/wry/home.html#" title="首页">首页</a></li>
+		      <li><a href="https://code.xueersi.com/home/project/detail?lang=code&amp;pid=18117905&amp;version=python&amp;form=python&amp;langType=python" target="_blank" title="加入若宇工作室">加入工作室</a></li>
+		      <li><a href="mailto:wangkang@139.com" title="联系我们" target="_blank">邮箱</a></li>
+			  <li>
+			      <div class="drop">
+			          <a href="http://yangguang-gongzuoshi.top/wry/articles.html">教程中心</a>
+			          <ul class="dropContent">
+					  <style>
+		.dropContent li a{
+			color: white;
+		}
+					  </style>
+			              <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=py">Python</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=c">C/C++</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=scratch">图形化编程</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=android">安卓</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=frontend">网页前端</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=win">Windows技巧</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=win10">Win10</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=win11">Win11</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=linux">Linux技巧</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=mint">Linux mint</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=centos">CentOS</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=rh">红帽</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=else">其他</a></li>
+						  <li><a href="http://yangguang-gongzuoshi.top/wry/articles.html?type=drone">无人机</a></li>
+			          </ul>
+			      </div>
+			  </li>
+			  <li>
+				<div class="drop">
+					<a href="games.html">游戏专区</a>
+					<ul class="dropContent">
+						<li>分类功能暂未开放</li>
+					</ul>
+				</div>
+			</li>
+		        </ul>
+		        <div class="rightdiv">
+		            <font class="rightfont">已有</font>
+		            <!--已失效<a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=yrqdn&nd=6&style=108" border="0" alt="网站计数器"></a>
+		            <font class="rightfont">人访问该网站！</font><!---->
+		            <!--更换
+		            <a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zrmexaxq&amp;nd=6&amp;style=108" border="0" alt="网站计数器"></a>
+		        --></div>
+		        </nav>
+		<div class="di1">
+		        <button class="back" style="float:left" onclick="_back()">&lt;--返回</button>
+		        <span>文章详情：SQL注入 - 王若宇的教程</span>
+		        <!--mfwztj style="float:right">
+		            已有
+		            <a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zexkqd&amp;nd=6&amp;style=10" border="0" alt="免费计数器"></a>
+		            人阅读
+		            <a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zueexkqx&amp;nd=6&amp;style=10" border="0" alt="免费计数器"></a>
+		            次
+		        </mfwztj-->
+		    </div>
+			<h1>SQL注入</h1>
+			<h3 class="widget-title"id="VDO">
+				视频教程
+			</h3>
+			<video id="v1"src="https://livefile.xesimg.com/programme/python_assets/3e3f2687b648b06640e37252954821b6.mp4"height="350px"ondurationchange="document.getElementById('time').value=this.duration/100*this.currentTime"></video>
+			<br/><button class="bigBtn greenBtn"onclick="document.getElementById('v1').play()">播放视频</button>
+			<button class="bigBtn greenBtn redBtn"onclick="document.getElementById('v1').pause()">暂停视频</button><br />
+			<button class="bigBtn greenBtn"id="mm"style="background-color: orange;"onclick="document.getElementById('v1').currentTime='0'">从头开始</button>
+			<div style="display: inline-block;border: 1.5px dashed deeppink;">
+				<b><big>视频播放设置：</big></b><br />
+				<!--��-->视频播放进度：<input style="width: 20em;"id="time"type="range"min="0"max="100"onchange="document.getElementById('v1').currentTime=document.getElementById('v1').duration/100*this.value"onmousedown="window.flag=true"onmouseup="this.onchange();window.flag=false"ontouchstart="this.onmousedown()"ontouchend="this.onmouseup()"/><br />
+				音量：<input style="width: 20em;"type="range"onload="this.value=document.getElementById('v1').volume"id="volume"onchange="document.getElementById('v1').volume=this.value"/><br />
+				<button><a href="javascript:window.open(document.getElementById('v1').src)">大屏播放/下载</a></button>
+			</div>
+			<style>
+#mm:hover{
+	background-color: darkgoldenrod!important;
+}
+#mm{
+	color: white;
+}
+.mf,.mi{
+	color: #0000FF;
+}
+.html-highlight .c1{
+	color: #008000;
+}
+.html-highlight .nb{
+	color: #00BFFF;
+}
+.html-highlight .s2{
+	color: green;
+}
+			</style><script>
+window.flag=false
+window.setInterval(function(){
+	if (window.flag==false){
+		document.getElementById('time').value=document.getElementById("v1").currentTime/document.getElementById('v1').duration*100
+	}
+},1)
+			</script>
+			<h3 class="widget-title">文字详解</h3>
+		<div class="article">
+			<li>SQL注入概述</li>
+			<p class="img-block">
+				最近，我们的数据库被“<a href="https://code.xueersi.com/space/3152698">就不告诉你</a>”（我知道他是Chris，快取关！）“嘿”了，他用的方法就是SQL注入。
+				<img src="https://s4.ax1x.com/2022/02/18/HTIN6I.png"/><br />
+				我们很生气，想要立刻解决这个漏洞来防止他再次进攻。那么“SQL注入”呢？我们先<a href="#VDO">看个视频</a>。
+			</p>
+			<li>解决思路</li>
+			<p>
+				<style>
+.highlight{
+	border: 1.5px dashed #00BFFF;
+}
+				</style>
+				视频中作者建立了一个数据库服务器，写入了如下HTML：
+				<div class="highlight html-highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">head</span><span class="o">&gt;&lt;</span><span class="n">meta</span> <span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s2">&quot;Content-Type&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;text/html; charset=UTF-8&quot;</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+				<span class="n">html</span><span class="p">,</span><span class="n">body</span><span class="p">{</span>
+				    <span class="n">overflow</span><span class="p">:</span> <span class="n">hidden</span><span class="p">;</span>
+				    <span class="n">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+				    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#000;</span>
+				    <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span><span class="mi">9999</span><span class="p">;</span>
+				    <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">canvas</span> <span class="p">{</span>
+				  <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+				  <span class="n">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+				  <span class="n">position</span><span class="p">:</span> <span class="n">fixed</span><span class="p">;</span>
+				  <span class="n">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+				  <span class="n">touch</span><span class="o">-</span><span class="n">action</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+				  <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="c1">#txt{</span>
+				    <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+				    <span class="n">width</span><span class="p">:</span><span class="mi">65</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">height</span><span class="p">:</span> <span class="mf">5.5</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">left</span><span class="p">:</span> <span class="mi">10</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">top</span><span class="p">:</span><span class="mi">50</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">border</span><span class="p">:</span> <span class="mi">0</span><span class="n">px</span><span class="p">;</span>
+				    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mf">36.5</span><span class="n">px</span><span class="p">;</span>
+				    <span class="n">color</span><span class="p">:</span><span class="n">black</span><span class="p">;</span>
+				    <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span><span class="mi">9993</span><span class="p">;</span>
+				<span class="p">}</span>
+				
+				<span class="o">.</span><span class="n">button</span><span class="p">{</span>
+				    <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+				    <span class="n">width</span><span class="p">:</span> <span class="mi">12</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">height</span><span class="p">:</span><span class="mf">5.5</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">top</span><span class="p">:</span><span class="mi">50</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">left</span><span class="p">:</span> <span class="mi">78</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+				    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">110</span><span class="o">%</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">div</span><span class="p">{</span>
+				   <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+				   <span class="n">top</span><span class="p">:</span><span class="mi">60</span><span class="o">%</span><span class="p">;</span>
+				   <span class="n">left</span><span class="p">:</span><span class="mi">25</span><span class="o">%</span><span class="p">;</span>
+				   <span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+				   <span class="n">width</span><span class="p">:</span><span class="mi">50</span><span class="o">%</span><span class="p">;</span>
+				   <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="mi">120</span><span class="o">%</span><span class="p">;</span>
+				   <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span> <span class="mi">99911</span>
+				<span class="p">}</span>
+				
+				<span class="p">[</span><span class="n">placeholder</span><span class="p">]{</span>
+				    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span><span class="n">center</span><span class="p">;</span>
+				    <span class="n">color</span><span class="p">:</span><span class="n">white</span><span class="p">;</span>
+				    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+				<span class="p">}</span>
+				
+				<span class="nb">input</span><span class="p">::</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="n">placeholder</span><span class="p">{</span>
+				    <span class="n">color</span><span class="p">:</span><span class="n">white</span><span class="p">;</span>
+				    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+				    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span><span class="n">center</span><span class="p">;</span>
+				    <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span><span class="mi">9997</span>
+				<span class="p">}</span>
+				<span class="o">.</span><span class="n">button1</span> <span class="p">{</span>
+				    <span class="n">border</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span> <span class="n">solid</span> <span class="c1">#00008B;</span>
+				    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mf">0.9</span><span class="p">);</span>
+				    <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span><span class="mi">9996</span>
+				<span class="p">}</span>
+				
+				<span class="o">.</span><span class="n">button1</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+				    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">248</span><span class="p">,</span><span class="mi">147</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mf">0.9</span><span class="p">);</span>
+				    <span class="n">color</span><span class="p">:</span> <span class="n">black</span><span class="p">;</span>
+				    <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span><span class="mi">9995</span>
+				<span class="p">}</span>
+				
+				<span class="nb">input</span><span class="p">::</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="n">placeholder</span> <span class="p">{</span> 
+				<span class="n">color</span><span class="p">:</span> <span class="c1">#999; </span>
+				<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="p">:</span> <span class="n">color</span><span class="mf">.5</span><span class="n">s</span><span class="p">;</span> 
+				<span class="p">}</span> 
+				<span class="nb">input</span><span class="p">:</span><span class="n">focus</span><span class="p">::</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="n">placeholder</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span><span class="n">hover</span><span class="p">::</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="n">placeholder</span> <span class="p">{</span> 
+				<span class="n">color</span><span class="p">:</span> <span class="c1">#c2c2c2; </span>
+				<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="p">:</span> <span class="n">color</span><span class="mf">.5</span><span class="n">s</span><span class="p">;</span> 
+				<span class="n">border</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">orange</span><span class="p">;</span>
+				<span class="p">}</span>
+				
+				<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+				<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;&lt;</span><span class="n">body</span><span class="o">&gt;&lt;</span><span class="n">canvas</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;703&quot;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;759&quot;</span><span class="o">&gt;&lt;/</span><span class="n">canvas</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+				<span class="n">const</span> <span class="n">canvas</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">querySelector</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+				<span class="n">const</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+				
+				<span class="n">const</span> <span class="n">RESOLUTION</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+				
+				<span class="n">let</span> <span class="n">w</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">innerWidth</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">;</span>
+				<span class="n">let</span> <span class="n">h</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">innerHeight</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">;</span>
+				
+				<span class="n">const</span> <span class="n">PARTICLE_COUNT</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+				<span class="n">const</span> <span class="n">CONNECT_DISTANCE</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="mf">0.05</span><span class="p">;</span>
+				<span class="n">const</span> <span class="n">FORCE_DISTANCE</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">;</span>
+				
+				<span class="n">const</span> <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">Math</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>
+				<span class="n">const</span> <span class="n">PI</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="p">;</span>
+				<span class="n">const</span> <span class="n">TAU</span> <span class="o">=</span> <span class="n">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+				
+				<span class="n">let</span> <span class="n">time</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+				
+				<span class="n">const</span> <span class="n">lerp</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">amt</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				  <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">amt</span><span class="p">)</span> <span class="o">*</span> <span class="n">start</span> <span class="o">+</span> <span class="n">amt</span> <span class="o">*</span> <span class="n">end</span><span class="p">;</span>
+				<span class="p">};</span>
+				
+				<span class="n">const</span> <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				  <span class="n">const</span> <span class="n">a</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">;</span>
+				  <span class="n">const</span> <span class="n">b</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y2</span><span class="p">;</span>
+				  <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+				<span class="p">};</span>
+				
+				<span class="n">const</span> <span class="n">angle</span> <span class="o">=</span> <span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="n">ey</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				  <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">ey</span> <span class="o">-</span> <span class="n">cy</span><span class="p">,</span> <span class="n">ex</span> <span class="o">-</span> <span class="n">cx</span><span class="p">);</span>
+				<span class="p">};</span>
+				
+				<span class="n">const</span> <span class="n">particlePrototype</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+				  <span class="n">x</span><span class="p">:</span> <span class="n">w</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">r</span><span class="p">(</span><span class="n">TAU</span><span class="p">))</span> <span class="o">*</span> <span class="n">r</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">),</span>
+				  <span class="n">y</span><span class="p">:</span> <span class="n">h</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">r</span><span class="p">(</span><span class="n">TAU</span><span class="p">))</span> <span class="o">*</span> <span class="n">r</span><span class="p">(</span><span class="n">h</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">),</span>
+				  <span class="n">angle</span><span class="p">:</span> <span class="n">r</span><span class="p">(</span><span class="n">TAU</span><span class="p">),</span>
+				  <span class="n">speed</span><span class="p">:</span> <span class="n">r</span><span class="p">(</span><span class="mf">0.15</span><span class="p">),</span>
+				  <span class="n">normalSpeed</span><span class="p">:</span> <span class="n">r</span><span class="p">(</span><span class="mf">0.15</span><span class="p">),</span>
+				  <span class="n">oscAmplitudeX</span><span class="p">:</span> <span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+				  <span class="n">oscSpeedX</span><span class="p">:</span> <span class="mf">0.001</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mf">0.008</span><span class="p">),</span>
+				  <span class="n">oscAmplitudeY</span><span class="p">:</span> <span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+				  <span class="n">oscSpeedY</span><span class="p">:</span> <span class="mf">0.001</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mf">0.008</span><span class="p">),</span>
+				  <span class="n">connectDistance</span><span class="p">:</span> <span class="n">r</span><span class="p">(</span><span class="n">CONNECT_DISTANCE</span><span class="p">),</span>
+				  <span class="n">color</span><span class="p">:</span> <span class="p">{</span>
+				    <span class="n">r</span><span class="p">:</span> <span class="n">Math</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">200</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mi">55</span><span class="p">)),</span>
+				    <span class="n">g</span><span class="p">:</span> <span class="n">Math</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">150</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mi">105</span><span class="p">)),</span>
+				    <span class="n">b</span><span class="p">:</span> <span class="n">Math</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">200</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mi">55</span><span class="p">))</span> <span class="p">}</span> <span class="p">});</span>
+				
+				
+				
+				<span class="n">const</span> <span class="n">particles</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Array</span><span class="p">(</span><span class="n">PARTICLE_COUNT</span><span class="p">)</span><span class="o">.</span>
+				<span class="n">fill</span><span class="p">({})</span><span class="o">.</span>
+				<span class="nb">map</span><span class="p">(</span><span class="n">particlePrototype</span><span class="p">);</span>
+				
+				<span class="n">const</span> <span class="n">update</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				  <span class="n">particles</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">p1</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="n">p1</span><span class="o">.</span><span class="n">oscSpeedX</span><span class="p">)</span> <span class="o">*</span> <span class="n">p1</span><span class="o">.</span><span class="n">oscAmplitudeX</span><span class="p">)</span> <span class="o">*</span> <span class="n">p1</span><span class="o">.</span><span class="n">speed</span><span class="p">;</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="n">p1</span><span class="o">.</span><span class="n">oscSpeedY</span><span class="p">)</span> <span class="o">*</span> <span class="n">p1</span><span class="o">.</span><span class="n">oscAmplitudeY</span><span class="p">)</span> <span class="o">*</span> <span class="n">p1</span><span class="o">.</span><span class="n">speed</span><span class="p">;</span>
+				
+				    <span class="n">p1</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">speed</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">normalSpeed</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
+				
+				    <span class="k">if</span> <span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">w</span> <span class="o">||</span> <span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				      <span class="n">p1</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="n">PI</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="n">angle</span><span class="p">;</span>
+				    <span class="p">}</span>
+				    <span class="k">if</span> <span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">h</span> <span class="o">||</span> <span class="n">p1</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				      <span class="n">p1</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="o">-</span><span class="n">p1</span><span class="o">.</span><span class="n">angle</span><span class="p">;</span>
+				    <span class="p">}</span>
+				
+				    <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.005</span><span class="p">)</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">oscAmplitudeX</span> <span class="o">=</span> <span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+				    <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.005</span><span class="p">)</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">oscSpeedX</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mf">0.008</span><span class="p">);</span>
+				    <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.005</span><span class="p">)</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">oscAmplitudeY</span> <span class="o">=</span> <span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+				    <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.005</span><span class="p">)</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">oscSpeedY</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="o">+</span> <span class="n">r</span><span class="p">(</span><span class="mf">0.008</span><span class="p">);</span>
+				
+				    <span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">Math</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">));</span>
+				    <span class="n">p1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">Math</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">h</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">));</span>
+				  <span class="p">});</span>
+				<span class="p">};</span>
+				
+				<span class="n">const</span> <span class="n">render</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				
+				  <span class="n">ctx</span><span class="o">.</span><span class="n">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
+				
+				  <span class="n">particles</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">p1</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				    <span class="n">particles</span><span class="o">.</span>
+				    <span class="nb">filter</span><span class="p">(</span><span class="n">p2</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				      <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">)</span>
+				      <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+				      <span class="k">if</span> <span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">p1</span><span class="o">.</span><span class="n">connectDistance</span><span class="p">)</span>
+				      <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+				      <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+				    <span class="p">})</span><span class="o">.</span>
+				    <span class="nb">map</span><span class="p">(</span><span class="n">p2</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				      <span class="n">const</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+				      <span class="n">p1</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">speed</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">speed</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">/</span> <span class="n">p1</span><span class="o">.</span><span class="n">connectDistance</span> <span class="o">*</span> <span class="n">dist</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
+				      <span class="k">return</span> <span class="p">{</span>
+				        <span class="n">p1</span><span class="p">,</span>
+				        <span class="n">p2</span><span class="p">,</span>
+				        <span class="n">color</span><span class="p">:</span> <span class="n">p1</span><span class="o">.</span><span class="n">color</span><span class="p">,</span>
+				        <span class="n">opacity</span><span class="p">:</span> <span class="n">Math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">100</span> <span class="o">/</span> <span class="n">p1</span><span class="o">.</span><span class="n">connectDistance</span> <span class="o">*</span> <span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">connectDistance</span> <span class="o">-</span> <span class="n">dist</span><span class="p">))</span> <span class="o">/</span> <span class="mi">100</span> <span class="p">};</span>
+				
+				    <span class="p">})</span><span class="o">.</span>
+				    <span class="n">forEach</span><span class="p">((</span><span class="n">line</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				      <span class="n">const</span> <span class="n">colorSwing</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="n">line</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">oscSpeedX</span><span class="p">);</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">beginPath</span><span class="p">();</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">globalAlpha</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">opacity</span><span class="p">;</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">lineTo</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">strokeStyle</span> <span class="o">=</span> <span class="err">`</span><span class="n">rgb</span><span class="p">(</span>
+									<span class="err">$</span><span class="p">{</span><span class="n">Math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">*</span> <span class="n">colorSwing</span><span class="p">)},</span>
+									<span class="err">$</span><span class="p">{</span><span class="n">Math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">colorSwing</span><span class="p">)},</span>
+									<span class="err">$</span><span class="p">{</span><span class="n">line</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span><span class="p">}</span>
+								<span class="p">)</span><span class="err">`</span><span class="p">;</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">opacity</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">stroke</span><span class="p">();</span>
+				      <span class="n">ctx</span><span class="o">.</span><span class="n">closePath</span><span class="p">();</span>
+				    <span class="p">});</span>
+				  <span class="p">});</span>
+				
+				<span class="p">};</span>
+				
+				<span class="n">const</span> <span class="n">loop</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				  <span class="n">time</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+				  <span class="n">update</span><span class="p">();</span>
+				  <span class="n">render</span><span class="p">();</span>
+				  <span class="n">window</span><span class="o">.</span><span class="n">requestAnimationFrame</span><span class="p">(</span><span class="n">loop</span><span class="p">);</span>
+				<span class="p">};</span>
+				
+				<span class="n">loop</span><span class="p">();</span>
+				
+				<span class="n">window</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;mousemove&#39;</span><span class="p">,</span> <span class="n">e</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				
+				  <span class="n">const</span> <span class="n">mouseX</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">layerX</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">;</span>
+				  <span class="n">const</span> <span class="n">mouseY</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">layerY</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">;</span>
+				
+				  <span class="n">particles</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">p</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				    <span class="n">const</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">mouseX</span><span class="p">,</span> <span class="n">mouseY</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+				
+				    <span class="k">if</span> <span class="p">(</span><span class="n">dist</span> <span class="o">&lt;</span> <span class="n">FORCE_DISTANCE</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				      <span class="n">p</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span><span class="p">(</span><span class="n">mouseX</span><span class="p">,</span> <span class="n">mouseY</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+				      <span class="n">const</span> <span class="n">force</span> <span class="o">=</span> <span class="p">(</span><span class="n">FORCE_DISTANCE</span> <span class="o">-</span> <span class="n">dist</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">;</span>
+				      <span class="n">p</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">speed</span><span class="p">,</span> <span class="n">force</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
+				    <span class="p">}</span>
+				  <span class="p">});</span>
+				
+				<span class="p">});</span>
+				
+				<span class="n">window</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="n">e</span> <span class="o">=&gt;</span> <span class="p">{</span>
+				  <span class="n">w</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">innerWidth</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">;</span>
+				  <span class="n">h</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">innerHeight</span> <span class="o">*</span> <span class="n">RESOLUTION</span><span class="p">;</span>
+				<span class="p">});</span>
+				<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+				<span class="n">h1</span> <span class="p">{</span>
+				    <span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span> <span class="mi">9992</span><span class="p">;</span>
+				    <span class="n">color</span><span class="p">:</span><span class="c1">#fff;</span>
+				    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">xxx</span><span class="o">-</span><span class="n">large</span><span class="p">;</span>
+				    <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+				    <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+				    <span class="n">top</span><span class="p">:</span> <span class="mi">30</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+				    <span class="n">height</span><span class="p">:</span><span class="mi">10</span><span class="o">%</span><span class="p">;</span>
+				    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">text</span><span class="o">-</span><span class="n">stroke</span><span class="p">:</span><span class="mi">1</span><span class="n">px</span> <span class="c1">#1d0fec;</span>
+				    <span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">80</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">2</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">75</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">3</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">70</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">4</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">66</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">5</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">64</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">6</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">62</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">7</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">61</span><span class="o">%</span><span class="p">),</span>                    <span class="mi">0</span> <span class="mi">8</span><span class="n">px</span> <span class="mi">0</span> <span class="n">hsl</span><span class="p">(</span><span class="mi">174</span><span class="p">,</span><span class="mi">5</span><span class="o">%</span><span class="p">,</span><span class="mi">60</span><span class="o">%</span><span class="p">),</span>                       <span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.05</span><span class="p">),</span>                   <span class="mi">0</span> <span class="mi">1</span><span class="n">px</span> <span class="mi">3</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span>                   <span class="mi">0</span> <span class="mi">3</span><span class="n">px</span> <span class="mi">5</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span>                  <span class="mi">0</span> <span class="mi">5</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span>                 <span class="mi">0</span> <span class="mi">10</span><span class="n">px</span> <span class="mi">10</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span>                 <span class="mi">0</span> <span class="mi">20</span><span class="n">px</span> <span class="mi">20</span><span class="n">px</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.3</span><span class="p">);</span>
+				<span class="p">}</span>
+				<span class="o">*</span><span class="p">{</span>
+					<span class="n">color</span><span class="p">:</span> <span class="n">white</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="nb">input</span><span class="p">{</span>
+					<span class="n">color</span><span class="p">:</span> <span class="n">black</span><span class="err">!</span><span class="n">important</span><span class="p">;</span>
+					<span class="n">margin</span><span class="o">-</span><span class="n">bottom</span><span class="p">:</span> <span class="mi">20</span><span class="n">px</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">canvas</span><span class="p">{</span>
+					<span class="n">z</span><span class="o">-</span><span class="n">index</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">form</span><span class="p">{</span>
+					<span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+					<span class="n">top</span><span class="p">:</span> <span class="mi">50</span><span class="o">%</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="nb">input</span><span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">]{</span>
+					<span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
+					<span class="n">height</span><span class="p">:</span> <span class="mi">30</span><span class="n">px</span><span class="p">;</span>
+					<span class="n">width</span><span class="p">:</span> <span class="mf">1.5</span><span class="n">cm</span><span class="p">;</span>
+					<span class="n">top</span><span class="p">:</span> <span class="mi">35</span><span class="n">px</span><span class="p">;</span>
+					<span class="n">left</span><span class="p">:</span><span class="o">-</span><span class="mi">300</span><span class="n">px</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">h2</span><span class="p">{</span>
+					<span class="n">top</span><span class="p">:</span><span class="mi">200</span><span class="n">px</span><span class="p">;</span>
+					<span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="n">h1</span><span class="p">{</span>
+					<span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
+					<span class="n">top</span><span class="p">:</span> <span class="mi">0</span><span class="n">px</span><span class="p">;</span>
+				<span class="p">}</span>
+				<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+				
+				
+				<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">若宇工作室招人表单</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">h2</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">&gt;</span><span class="n">任何人均可加入</span><span class="err">，</span><span class="n">在下面进行报名</span><span class="err">：</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;insert.php&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">&gt;</span>
+				<span class="n">姓名</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;n1&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;尊姓大名？&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+				<span class="n">性别</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;n2&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;是男是女？&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+				<span class="n">年龄</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;n3&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;是老是少？&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+				<span class="n">编程语言</span><span class="err">：</span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;typelist&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;n4&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;有何贵干？（决定部门，如Python部）&quot;</span> <span class="nb">list</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">datalist</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;list&quot;</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;</span><span class="n">图形化编程</span><span class="err">（</span><span class="n">如scratch</span><span class="err">）</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;</span><span class="n">Python</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;</span><span class="n">C</span><span class="o">++/</span><span class="n">C语言</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;</span><span class="n">前端</span><span class="err">（</span><span class="n">HTML</span><span class="err">，</span><span class="n">CSS</span><span class="err">，</span><span class="n">JS</span><span class="err">，</span><span class="n">typescript</span><span class="err">）</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;</span><span class="n">ASP</span><span class="o">/</span><span class="n">PHP</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+					<span class="o">&lt;</span><span class="n">option</span><span class="o">&gt;</span><span class="n">其他</span><span class="err">（</span><span class="n">JAVA</span><span class="err">，</span><span class="n">VisualFox等</span><span class="err">）</span><span class="o">&lt;/</span><span class="n">option</span><span class="o">&gt;</span>
+				<span class="o">&lt;/</span><span class="n">datalist</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;button button1&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;提交&quot;</span><span class="o">&gt;</span>
+				<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span><span class="n">document</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;script src=&quot;//&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">host</span> <span class="o">||</span> <span class="s1">&#39;localhost&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:35929/livereload.js?snipver=1&quot;&gt;&lt;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;script&gt;&#39;</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;//yangguang-gongzuoshi.top:35929/livereload.js?snipver=1&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;./index_files/livereload.js.下载&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;&lt;</span><span class="n">script</span><span class="o">&gt;</span><span class="n">document</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;LiveReloadDisconnect&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="n">setTimeout</span><span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="n">window</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">reload</span><span class="p">();</span> <span class="p">},</span> <span class="mi">500</span><span class="p">);</span> <span class="p">})</span><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;xl-chrome-ext-bar&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display: none;&quot;</span><span class="o">&gt;</span>
+				      <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;xl-chrome-ext-bar__logo&quot;</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+				
+				      <span class="o">&lt;</span><span class="n">a</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;xl_chrome_ext_download&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;javascript:;&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;xl-chrome-ext-bar__option&quot;</span><span class="o">&gt;</span><span class="n">下载视频</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+				      <span class="o">&lt;</span><span class="n">a</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;xl_chrome_ext_close&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;javascript:;&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;xl-chrome-ext-bar__close&quot;</span><span class="o">&gt;&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+				    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">body</span><span class="o">&gt;&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+				</pre></div>
+
+				并且使用以下PHP代码添加表单数据到数据库：
+				<style>
+.php-highlight .nb{
+	color: #00bfff;
+}
+.php-highlight .s2{
+	color: #008000;
+}
+.php-highlight .err{
+	color: #00D082;
+}
+.SQL-highlight .nn{
+	color: orange!important;
+}
+				</style>
+				<div class="highlight php-highlight"><pre><span></span><span class="o">&lt;</span><span class="err">?</span><span class="n">php</span>
+				<span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Type: text/html;charset=utf-8&quot;</span><span class="p">);</span>
+				
+				<span class="k">function</span> <span class="nf">a</span><span class="p">(</span><span class="err">$</span><span class="n">st</span><span class="p">){</span>
+				        <span class="err">$</span><span class="n">n_1</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+				        <span class="err">$</span><span class="n">strlen</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="err">$</span><span class="n">st</span><span class="p">);</span>
+				        <span class="k">for</span> <span class="p">(</span><span class="err">$</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="err">$</span><span class="n">i</span> <span class="o">&lt;</span> <span class="err">$</span><span class="n">strlen</span> <span class="p">;</span> <span class="err">$</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+				                <span class="err">$</span><span class="nb">str</span><span class="o">=</span><span class="nb">ord</span><span class="p">(</span><span class="err">$</span><span class="n">st</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]);</span>
+				                <span class="err">$</span><span class="nb">str</span><span class="o">=</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="err">$</span><span class="nb">str</span><span class="p">;</span>
+				                <span class="err">$</span><span class="n">n_1</span><span class="o">=</span><span class="err">$</span><span class="n">n_1</span><span class="o">.</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="err">$</span><span class="nb">str</span><span class="p">;}</span>
+				        <span class="k">return</span> <span class="err">$</span><span class="n">n_1</span><span class="p">;</span>
+				        <span class="nb">echo</span> <span class="err">$</span><span class="n">n_1</span><span class="p">;</span>
+				<span class="p">}</span>
+				
+				
+				<span class="err">$</span><span class="n">con</span> <span class="o">=</span> <span class="n">mysqli_connect</span><span class="p">(</span><span class="s2">&quot;localhost:3306&quot;</span><span class="p">,</span><span class="s2">&quot;wry&quot;</span><span class="p">,</span><span class="s2">&quot;Roy-2010&quot;</span><span class="p">);</span><span class="c1">//连接数据库</span>
+				<span class="k">if</span> <span class="p">(</span><span class="err">!$</span><span class="n">con</span><span class="p">)</span>
+				  <span class="p">{</span>
+				  <span class="nb">die</span><span class="p">(</span><span class="s1">&//39;Could not connect: &//39;</span> <span class="o">.</span> <span class="n">mysql_error</span><span class="p">());</span>
+				  <span class="p">}</span>
+				<span class="n">mysqli_query</span><span class="p">(</span><span class="s2">&quot;set names &//39;utf8&//39;&quot;</span><span class="p">);</span>
+				<span class="n">mysqli_select_db</span><span class="p">(</span><span class="err">$</span><span class="n">con</span><span class="p">,</span><span class="s2">&quot;ser17qov6&quot;</span> <span class="p">);</span>
+				
+				<span class="err">$</span><span class="n">sql</span><span class="o">=</span><span class="s2">&quot;INSERT INTO wry_come (name, nn, age, bn)</span>
+				<span class="n">VALUES</span>
+				<span class="p">(</span><span class="s1">&//39;$_POST[n1]&//39;</span><span class="p">,</span><span class="s1">&//39;$_POST[n2]&//39;</span><span class="p">,</span><span class="s1">&//39;$_POST[n3]&//39;</span><span class="p">,</span><span class="s1">&//39;$_POST[n4]&//39;</span><span class="p">)</span><span class="s2">&quot;;</span>
+				
+				<span class="k">if</span> <span class="p">(</span><span class="err">!</span><span class="n">mysqli_multi_query</span><span class="p">(</span><span class="err">$</span><span class="n">con</span><span class="p">,</span><span class="err">$</span><span class="n">sql</span><span class="p">))</span><span class="c1">//执行</span>
+				  <span class="p">{</span>
+				  <span class="nb">die</span><span class="p">(</span><span class="s1">&//39;Error: &//39;</span> <span class="o">.</span> <span class="n">mysqli_error</span><span class="p">(</span><span class="err">$</span><span class="n">con</span><span class="p">));</span>
+				  <span class="p">}</span>
+				<span class="nb">echo</span> <span class="s2">&quot;1 record added&quot;</span><span class="p">;</span>
+				
+				<span class="n">mysqli_close</span><span class="p">(</span><span class="err">$</span><span class="n">con</span><span class="p">);</span>
+				<span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: http://yangguang-gongzuoshi.top/wry/come/&quot;</span><span class="p">);</span>
+				<span class="n">exit</span><span class="p">;</span>
+				<span class="err">?</span><span class="o">&gt;</span>
+				</pre></div>
+				然后打开localhost，在最后一个字段填入以下SQL语句：
+				<div class="highlight SQL-highlight"><pre><span></span>'<span class="p">);</span><span class="k">delete</span> <span class="kn">from</span> <span class="nn">wry_come</span><span class="p">;</span><span class="c1">#</span>
+				</pre></div>
+				<h3 class="widget-title">分析：</h3>
+				该语句使用“')”和分号结束了前面的语句，又用#结束了后面的语句，然后自己注入的代码“delete from wry_come”就被执行了，数据库被“洗劫一空”。
+				<img src="https://s4.ax1x.com/2022/02/18/H79Ui9.md.png"style="display: block;"/>
+				如果我们将
+				<div class="highlight SQL-highlight">
+					<span class="k">if</span> <span class="p">(</span><span class="err">!</span><span class="n">mysqli_multi_query</span><span class="p">(</span><span class="err">$</span><span class="n">con</span><span class="p">,</span><span class="err">$</span><span class="n">sql</span><span class="p">))</span><span class="c1">//执行</span>
+				</div>
+				改为
+				<div class="highlight SQL-highlight">
+					<span class="k">if</span> <span class="p">(</span><span class="err">!</span><span class="n">mysqli_query</span><span class="p">(</span><span class="err">$</span><span class="n">con</span><span class="p">,</span><span class="err">$</span><span class="n">sql</span><span class="p">))</span><span class="c1">//执行</span>
+				</div>
+				就不能使用分号，问题自然也解决了。但是万一必须要使用分号怎么办呢？那么我们还是可以加入正则判断避免用户输入SQL语句的。代码如下：
+				<!---待续-->
+			</p>
+		</div>
+	</body>
+</html>

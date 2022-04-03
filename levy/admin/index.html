@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>林炯佑的网站后台</title>
+		<style>
+#undisplay{
+	display: none;
+}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+		<!--编辑器插件-->
+		<script>
+//ace同步脚本
+window.onload=function(){
+	this.setInterval(function(){
+		document.getElementById("undisplay").innerText=editor.getValue()
+	},1)
+}
+		</script>
+	</head>
+	<script>
+
+	</script>
+	<body>
+		<h1>后台管理</h1>
+		<form action="../modifiy.php"method="post"onsubmit="if(document.getElementById('type').value=='del'){if(window.confirm('删除后将无法恢复，确定删除？')){return true}else{return false}}">
+			后台密码：<input type="password"name="password"placeholder="避免黑客修改你的网站"/>
+			<br />修改模式：
+			<select name="pd"id="type">
+				<option value="file">修改/创建文件</option>
+				<option value="dir">创建目录（文件夹）</option>
+				<option value="del">删除文件或目录</option>
+			</select>
+			<br />
+			文件名：<input type="text"placeholder="输入你要修改的文件名（请勿添加../，否则将报错）"style="width: 25em;"name="filename"/>
+			<!--因为ace不能直接进表单，所以拿这个同步-->
+			<textarea id="undisplay"name="filewrite"></textarea><br />
+			<button type="submit">点击修改</button>
+		</form>
+		编辑器：<br />
+<pre id="code"class="ace_editor"style="min-height: 400px;">
+<textarea class="ace_text-input"></textarea></pre>
+		<script>
+if(window.location.hash=='#'||window.location.hash==''){
+	window.location.hash='#txt'
+}
+//初始化对象
+editor = ace.edit("code");
+
+//设置风格和语言（更多风格和语言，请到github上相应目录查看）
+theme = "clouds"
+language = window.location.hash.replace("#",'')//换掉#
+editor.setTheme("ace/theme/" + theme);
+editor.session.setMode("ace/mode/" + language);
+
+//字体大小
+editor.setFontSize(18);
+
+//设置只读（true时只读，用于展示代码）
+editor.setReadOnly(false);
+
+//自动换行,设置为off关闭
+editor.setOption("wrap", "free")
+
+//启用提示菜单
+ace.require("ace/ext/language_tools");
+editor.setOptions({
+enableBasicAutocompletion: true,
+enableSnippets: true,
+enableLiveAutocompletion: true
+});
+		</script>
+		编辑器语言：
+		<label><input type="radio"onclick="window.location.hash='html';window.location.reload()"value="HTML5"name="lang">HTML5</label>
+		<label><input type="radio"onclick="window.location.hash='css';window.location.reload()"value="CSS3"name="lang">CSS3</label>
+		<label><input type="radio"onclick="window.location.hash='javascript';window.location.reload()"name="lang">JS</label>
+		<label><input type="radio"onclick="window.location.hash='txt';window.location.reload()"name="lang">纯文本</label><br />
+		后台使用说明：
+		<ol style="color: red;">
+			<li>切换编辑器语言后正在编辑的内容<b>会丢失</b>，请谨慎操作。</li>
+			<li>后台密码修改或者忘记请在鸭信找<b>王若宇</b>（认准管理员表示）找回。</li>
+			<li>对本后台的使用有任何疑问，请询问王若宇解决。</li>
+		</ol>
+		<script>
+
+if(window.location.hash=='#html'){
+	document.getElementsByName("lang")[0].checked="checked"
+}else if(window.location.hash=="#css"){
+	document.getElementsByName("lang")[1].checked="checked"
+}else if(window.location.hash=="#javascript"){
+	document.getElementsByName("lang")[2].checked="checked"
+}else{
+	document.getElementsByName("lang")[3].checked="checked"
+}
+		</script>
+	</body>
+</html>

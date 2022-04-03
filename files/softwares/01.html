@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>鸭信电脑版 - 若宇软件站</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/widget-title.css"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/articles.css"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/dropdown.css"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/navbar.css"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/beautifulA.css"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/btns.css"/>
+		<link rel="icon"href="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+		<link rel="shortcut icon"href="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+		<script>
+function toDownload(){
+	window.location.hash='#'
+	window.location.hash="#download"
+}
+function downloadImgByBlob(url) {
+    var img = new Image()
+    img.onload = function() {
+        var canvas = document.createElement('canvas')
+        canvas.width = img.width
+        canvas.height = img.height
+        var ctx = canvas.getContext('2d')
+        // 将img中的内容画到画布上
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+        // 将画布内容转换为Blob
+        canvas.toBlob((blob) => {
+            // blob转为同源url
+            var blobUrl = window.URL.createObjectURL(blob)
+            // 创建a链接
+            var a = document.createElement('a')
+            a.href = blobUrl
+            a.download = ''
+            // 触发a链接点击事件，浏览器开始下载文件
+            a.click()
+        })
+    }
+    img.src = url
+    // 必须设置，否则canvas中的内容无法转换为blob
+    img.setAttribute('crossOrigin', 'Anonymous')
+}
+
+function downloadImgByBase64(url) {
+    var img = new Image()
+    img.onload = function() {
+        var canvas = document.createElement('canvas')
+        canvas.width = img.width
+        canvas.height = img.height
+        var ctx = canvas.getContext('2d')
+        // 将img中的内容画到画布上
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+        // 将画布内容转换为base64
+        var base64 = canvas.toDataURL()
+        // 创建a链接
+        var a = document.createElement('a')
+        a.href = base64
+        a.download = ''
+        // 触发a链接点击事件，浏览器开始下载文
+        a.click()
+    }
+    img.src = url
+    // 必须设置，否则canvas中的内容无法转换为base64
+    img.setAttribute('crossOrigin', 'Anonymous')
+}
+		</script>
+		<style>
+p[align="center"] img {
+    cursor: pointer;
+	height: 150px;
+}
+		</style>
+	</head>
+	<body>
+		<p align="center">
+			<img src="https://s4.ax1x.com/2022/02/07/HMLE60.png"/>
+		</p>
+		<nav>
+			<ul>
+				<li class="drop"><a href="http://yangguang-gongzuoshi.top/">阳光工作室
+				</a><ul class="dropContent"><a href="http://yangguang-gongzuoshi.top/">
+					</a><li><a href="http://yangguang-gongzuoshi.top/"></a><a href="http://yangguang-gongzuoshi.top/">首页</a></li>
+					<li><a href="https://code.xueersi.com/home/project/detail?lang=code&amp;pid=22959404&amp;version=offline&amp;form=python&amp;langType=python">加入须知</a></li>
+					<li><a href="https://docs.qq.com/form/page/DR1BralFabnRsYXJ6?groupUin=nWC5dVtkRzcGptnLxMCLVg%253D%253D#/fill">加入邀请表单</a></li>
+					<li><a href="http://blog.yangguang-gongzuoshi.top/">博客（已失效）</a></li>
+					<li><a href="mailto://1@yangguang-gongzuoshi.top/">阿里云邮箱</a></li>
+				</ul>
+				</li>
+				<li class="drop"><a href="http://yangguang-gongzuoshi.top/wry">若宇工作室</a>
+				<ul class="dropContent">
+					<li><a href="http://yangguang-gongzuoshi.top/wry/">首页</a></li>
+					<li><a href="http://yangguang-gongzuoshi.top/wry/files/games.html">游戏专区</a></li>
+					<li><a href="http://yangguang-gongzuoshi.top/wry/files/articles.html">教程中心</a></li>
+					<li><a href="http://yangguang-gongzuoshi.top/wry/come">加入</a></li>
+					<li><a href="mailto://wry2022@outlook.com/">outlook邮箱</a></li>
+					<li><a href="mailto://wry@yangguang-gongzuoshi.top/">阿里云邮箱</a></li>
+				</ul>
+				</li>
+				<li class="drop"><a href="http://chat.yangguang-gongzuoshi.top/index.php?action=page.passport.login">鸭信</a>
+				<ul class="dropContent">
+					<li><a href="http://yangguang-gongzuoshi.top/wry/files/duckchat_servieces/rules.html#">鸭信规则</a></li>
+					<li><a href="http://chat.yangguang-gongzuoshi.top/index.php?action=page.index">开始畅聊</a></li>
+				</ul>
+				</li>
+			</ul>
+			<div class="rightdiv"style="color: #FFFFFF;">
+				<!--预留：计数器位-->
+				<!--已有<a href="https://www.mfwztj.com/" target="_blank"><img src="https://www.mfwztj.com/hit.php?id=zurmxfxa&nd=3&style=9" border="0" alt="免费计数器"></a>人了解此规则-->
+			</div>
+		</nav>
+		<div class="article">
+			<style>
+/*蒙版图标样式*/
+.icon{
+	height: 150px;
+	width: 150px;
+	border-radius: 10px;
+}
+/*标签*/
+.tags{
+	    height: 30px;
+	    text-align: center;
+	    cursor: pointer;
+	    margin-right: 10px;
+	    display: inline-block;
+	    box-sizing: border-box;
+	    padding: 7px 14px;
+	    font-size: 14px;
+	    font-family: PingFangSC-Regular,PingFang SC;
+	    font-weight: 400;
+	    color: #212831;
+	    line-height: 14px;
+	    background: #f2f3f6;
+	    border-radius: 15px;
+	    border: 1px solid #f2f3f6;
+}
+.tags:hover{
+	border: 1px solid #9ea1ac;
+}
+h2[style="text-align: left;"] {
+    color: #0069D9;
+    cursor: pointer;
+    width: 10em;
+}
+h2[style="text-align: left;"]:hover{
+	color: red;
+	text-decoration: underline;
+}
+.ss{
+	width: 430px;
+}
+html,body{
+	width: 100%;
+}
+			</style>
+			<h1 align="center">鸭信电脑版</h1>
+			<button class="bigBtn greenBtn"onclick="toDownload()">
+				立即下载
+			</button>
+			<h3 class="widget-title">软件图标</h3>
+			<img src="https://s2.loli.net/2022/02/07/WUlzKL15obEPFjV.png"class="icon"id="png"/>
+			<br />
+			小鸭子<br />
+			<button class="bigBtn greenBtn"onclick="alert('按Ctrl+S保存');window.open('https://livefile.xesimg.com/programme/python_assets/4c6b895298fa9a576a593ebc8b841c9d.ico')//downloadImgByBase64('https://livefile.xesimg.com/programme/python_assets/4c6b895298fa9a576a593ebc8b841c9d.ico')">下载ico</button>
+			<button class="bigBtn greenBtn redBtn"
+			onclick="alert('右键保存图片');
+			window.virtualelement=window.document.createElement('a');
+			window.virtualelement.href=document.getElementById('png').src;
+			window.virtualelement.download='鸭信图标.png';
+			window.virtualelement.target='_blank';
+			window.virtualelement.click()">下载PNG</button>
+			<h3 class="widget-title">说明</h3>
+			<p>
+				鸭信这个东西让人搞不懂的一点就在于它官方的应用。它的苹果App完全不能下，安卓的下了也不能打开网页。并且它只有网页版，用起来非常麻烦。于是我们就定义了此电脑app，让聊鸭信更加简单。
+			</p>
+			<h3 class="widget-title">软件标签</h3>
+			<div class="tags"onclick="window.open('../softwares.html?search=原创')">原创</div>
+			<div class="tags"onclick="window.open('../softwares.html?search=聊天')">聊天</div>
+			<h3 class="widget-title">软件作者</h3>
+			<img class="headPhoto"src="https://static1.xesimg.com/udc-o-user-avatar/20210327/Talz5pURIk9e6SFelBQjcwDzbA1386.png?x-oss-process=image/resize,w_240/format,webp"/>
+			<br /><h2 style="text-align: left;"onclick="window.open('https://code.xueersi.com/space/10574153')">Python制作：王若宇本人</h2>
+			<img style="display: block;"src="https://s2.loli.net/2022/02/14/CvRAZwrFInMTe8U.jpg"class="headPhoto"/>
+			<br /><h2 style="text-align: left;"onclick="window.open('https://code.xueersi.com/space/15171026')">技术支持：张浩阳</h2>
+			<h3 class="widget-title">软件截图</h3>
+			<img src="https://s2.loli.net/2022/02/10/eV6QusoOx8WXaNv.png"class="ss"/>
+			<img src="https://s2.loli.net/2022/02/10/FRN7oG9czj1udXV.png"class="ss"/><br />
+			<img src="https://s2.loli.net/2022/02/10/8iRWSGlMhIvQa5d.png"class="ss"/>
+			<img src="https://s2.loli.net/2022/02/10/TVZqkCPhA9HXiDQ.png"class="ss"/>
+			<h3 class="widget-title">移动版</h3>
+			duckchat社交浏览器，下载源：<br />
+			<button class="bigBtn greenBtn"onclick="window.open('https://yan.lanzoui.com/i0bdXo7wn9a')">蓝奏云下载（推荐）</button>
+			<button class="bigBtn greenBtn redBtn" onclick="window.open('https://livefile.xesimg.com/programme/python_assets/84d1fc4dbcf5f924f481800b9f4292ea.apk')">学而思上传器（备用）</button>
+			<br />手机扫码下载：
+			<img src="https://s2.loli.net/2022/02/15/3JU6wmN4elqY1st.png"style="display: block;"/>
+			截图：<br />
+			<img src="https://s2.loli.net/2022/02/15/zNS6TlujZdhA798.png"width="500px"/>
+			<br />
+			<img src="https://s2.loli.net/2022/02/15/Wk7Jw1hcovHVfg3.png"width="500px">
+			<h3 class="widget-title"id="download">电脑版下载地址</h3>
+			<button class="bigBtn greenBtn"onclick="window.open('https://livefile.xesimg.com/programme/python_assets/cdd220cfcd6e12a63518e9ff8f1a5d4e.msi')">最新版下载</button>
+		</div>
+	</body>
+</html>
